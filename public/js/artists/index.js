@@ -1,0 +1,3 @@
+$(function(){
+    $('#table-artists').DataTable();
+});
