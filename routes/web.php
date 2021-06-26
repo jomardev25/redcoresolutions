@@ -11,11 +11,8 @@
 |
 */
 
-Auth::routes();
 
-Route::get('/', 'Auth\LoginController@showLoginForm');
-
-Route::resource('songs', 'SongController');
-
-Route::resource('artists', 'ArtistController');
+Route::get('/{vue?}', function () {
+    return view('app');
+})->where('vue', '[\/\w\.-]*')->name('home');
 

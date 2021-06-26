@@ -1,0 +1,110 @@
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    text-decoration: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    &:hover,
+    &:active {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    &--primary {
+        background-color: $color-primary;
+        border-color: $color-primary;
+        color: $color-white;
+
+        &:hover {
+            background-color: $color-primary-light;
+        }
+    }
+
+    &--danger {
+        background-color: $color-danger;
+        border-color: $color-danger;
+        color: $color-white;
+
+        &:hover {
+            background-color: lighten($color-danger, 10%);
+            border-color: darken($color-danger, 10%);
+        }
+    }
+
+    &--default {
+        border: 1px solid #e3dede;
+
+        &:hover {
+            background-color: #e3dede;
+        }
+    }
+
+    &--info {
+        background-color: $color-info;
+        border-color: $color-info;
+        color: $color-white;
+
+        &:hover {
+            background-color: lighten($color-info, 10%);
+            border-color: darken($color-info, 5%);
+        }
+    }
+
+    &--warning {
+        background-color: $color-warning;
+        border-color: $color-warning;
+        color: $color-white;
+
+        &:hover {
+            background-color: darken($color-warning, 10%);
+            border-color: darken($color-warning, 10%);
+        }
+    }
+
+    &--full {
+        display: block;
+        width: 100%;
+    }
+}
+
+
+.btn-inline {
+    border: none;
+    color: $color-primary;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s;
+    text-decoration: none;
+
+    & span {
+        margin-right: 3px;
+        transition: margin-right .2s;
+    }
+
+    &:hover {
+        color: $color-primary-light;
+
+        span {
+            margin-right: 8px;
+        }
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
+}

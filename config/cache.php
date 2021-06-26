@@ -72,7 +72,12 @@ return [
 
         'redis' => [
             'driver' => 'redis',
-            'connection' => 'cache',
+            'connection' => 'default',
+        ],
+
+        'redcoresolutions-cache-model' => [
+            'driver' => 'redis',
+            'connection' => 'redcoresolutions-cache-model',
         ],
 
     ],
@@ -88,6 +93,6 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_cache'),
+    'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'redcoresolutions'), '_').'_cache'),
 
 ];

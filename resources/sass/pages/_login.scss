@@ -1,0 +1,45 @@
+.login {
+    height: 100vh;
+    min-height: 100vh;
+
+    &__wrapper {
+        height: 100vh;
+        min-height: 100vh;
+        padding-top: 0;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__box {
+        background-color: $color-white;
+        padding: 2rem;
+        width: 100%;
+        max-width: 40rem;
+        box-shadow: $shadow-dark;
+
+        .logo-main {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .form-group__error {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__button {
+        margin-top: 1.8rem;
+    }
+
+    &__copyright {
+        font-size: 1.4rem;
+        margin-top: 4rem;
+        text-align: center;
+
+        p {
+            margin-bottom: 1rem;
+        }
+    }
+}

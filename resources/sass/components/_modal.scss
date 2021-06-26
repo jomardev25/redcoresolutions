@@ -1,0 +1,92 @@
+.modal {
+    &__mask {
+        position: fixed;
+        z-index: 9998;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: table;
+        transition: opacity 0.3s ease;
+    }
+
+    &__content {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    &__container {
+        width: 40rem;
+        min-height: 20rem;
+        margin: 0px auto;
+        background-color: $color-white;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $color-white;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 1.5rem 2rem;
+
+        &--primary {
+            color: $color-white;
+            background-color: $color-primary;
+        }
+
+        &--danger {
+            color: $color-white;
+            background-color: $color-danger;
+        }
+
+        &--warning {
+            color: $color-white;
+            background-color: $color-warning;
+        }
+    }
+
+    &__close {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-left: 10px;
+        padding: 10px;
+        border: 0;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8xMy8xNOrZqugAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAh0lEQVQYlY2QsQ0EIQwEB9cBAR1CJUaI/gigDnwR6NBL/7/xWLNrZ2b8EwGotVpr7eOitWa1VjugiNB7R1UPrKrWe0dEAHBbXUqxMQbeewDmnHjvyTm7C3zDwAUd9c63YQdUVdu6EAJzzquz7HXvTiklt+H9DQFYaxFjvDqllFyMkbXWvfpXHjJrWFgdBq/hAAAAAElFTkSuQmCC");
+
+        &:hover {
+            opacity: .75;
+        }
+    }
+
+    &__body {
+        margin: 1rem 0px;
+        padding: 2rem;
+    }
+
+    &__footer {
+        padding: 1.5rem 2rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &__okay-button {
+        width: 8rem;
+        margin-right: 1.2rem;
+    }
+
+    &__cancel-button {
+        width: 8rem;
+    }
+}

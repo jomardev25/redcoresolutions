@@ -119,7 +119,7 @@ return [
             'database' => env('REDIS_DB', 0),
         ],
 
-        'cache' => [
+        'redcoresolutions-cache-model' => [
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),

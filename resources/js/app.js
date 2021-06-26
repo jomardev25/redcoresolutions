@@ -1,33 +1,52 @@
+import Vue from "vue";
+import VueEvents from "vue-events";
+import Vuelidate from "vuelidate";
+import VuelidateErrorExtractor, {
+    templates
+} from "vuelidate-error-extractor";
+import VueTableAction from "@/components/vuetable/VueTableAction";
+import VueTable from "@/components/vuetable/Index";
+import Multiselect from "vue-multiselect";
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+import validationMessages from "@/helpers/validationMessages";
+import ButtonLoader from "@/components/form/ButtonLoader";
+import Card from "@/components/Card";
+import FormGroup from "@/components/form/FormGroup";
+import MessageBox from "@/components/messagebox";
+import Modal from "@/components/Modal";
 
-require('./bootstrap');
+import router from "@/router";
+import store from "@/store";
+import "@/directives";
+import "@/loader";
+import "@/permissions";
 
-window.Vue = require('vue');
+Vue.config.productionTip = false;
+Vue.config.devtools = false;
+Vue.prototype.$MessageBox = MessageBox;
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-const app = new Vue({
-    el: '#app'
+Vue.use(VuelidateErrorExtractor, {
+    template: FormGroup,
+    messages: validationMessages
 });
+
+Vue.use(VueEvents);
+Vue.use(Vuelidate);
+Vue.component("ButtonLoader", ButtonLoader);
+Vue.component("Card", Card);
+Vue.component("FormWrapper", templates.FormWrapper);
+Vue.component("Modal", Modal);
+Vue.component("Multiselect", Multiselect);
+Vue.component("VueTableAction", VueTableAction);
+Vue.component("VueTable", VueTable);
+
+window.onerror = function(message, source, line, column, error){
+    store.dispatch("app/resetLoading");
+    console.error("window.error:", message, source, line, column, error);
+};
+
+new Vue({
+    router,
+    store,
+    el: "#app"
+}).$mount("#app");

@@ -1,10 +1,26 @@
+@import "variables";
 
-@import "abstracts/variables";
+@import "~toastr/toastr";
+@import "~ladda/css/ladda.scss";
+@import "~vue-multiselect/dist/vue-multiselect.min.css";
 
-@import "abstracts/mixins";
+@import "base";
+@import "layout";
 
-@import "base/base";
+@import "components/animations";
+@import "components/dropdown";
+@import "components/form";
+@import "components/button";
+@import "components/card";
+@import "components/modal";
+@import "components/multiselect";
+@import "components/toastr";
+@import "components/vuetable";
 
-@import "components/cards";
+@import "pages/home";
+@import "pages/login";
+@import "pages/error";
 
-@import "plugin/toastr";
+@import "utils";
+
+

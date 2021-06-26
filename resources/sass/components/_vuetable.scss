@@ -1,0 +1,155 @@
+.vuetable-container {
+    @media only screen and (max-width: $bp-largest) {
+        overflow-x: auto;
+    }
+
+    .filter-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .form-group {
+            display: flex;
+            align-items: center;
+        }
+
+        &__label {
+            flex: 0 0 20%;
+        }
+
+        &__input {
+            flex: 0 0 43%;
+            margin-right: 1rem;
+        }
+
+        &__buttons {
+            flex: 0 0 40%;
+
+            .btn--primary {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
+    .vuetable.table {
+        box-shadow: none;
+        min-width: 100%;
+        border: 1px solid #D4D4D5;
+        border-top: 0.3rem solid $color-primary;
+        border-collapse: collapse;
+
+        thead th {
+            background: #F9FAFB;
+            text-align: inherit;
+            color: rgba(0, 0, 0, .87);
+            padding: .92857143em .78571429em;
+            vertical-align: inherit;
+            font-style: none;
+            font-weight: 700;
+            text-transform: none;
+            border: 1px solid rgba(34, 36, 38, .1);
+            border-top: none;
+            border-right: none;
+
+            transition: background .1s ease, color .1s ease;
+
+            &:first-child {
+                border-left: none;
+            }
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+
+        tbody tr {
+            &:first-child {
+                border-top: none;
+
+                td {
+                    border-top: none;
+                }
+            }
+
+            td {
+                border: 1px solid rgba(34, 36, 38, .1);
+                padding: .375rem .75rem;
+                text-align: inherit;
+                transition: background .1s ease, color .1s ease;
+
+                &:first-child {
+                    border-left: none;
+                }
+
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+
+        @media only screen and (max-width: $bp-largest) {
+            white-space: nowrap
+        }
+    }
+
+    .vuetable-pagination {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1.5rem;
+
+        .pagination {
+            a {
+                &.page {
+                    border: 1px solid lightgray;
+                    border-radius: 3px;
+                    padding: 5px 10px;
+                    margin-right: 2px;
+
+                    &:not(.active) {
+                        &:hover {
+                            cursor: pointer;
+                            color: $color-white;
+                            border-color: $color-primary;
+                            background-color: $color-primary-light;
+                        }
+                    }
+                }
+
+                &.active {
+                    color: $color-white;
+                    background-color: $color-primary;
+                    border: 1px solid lightgray;
+                    border-radius: 3px;
+                    padding: 5px 10px;
+                    margin-right: 2px;
+                }
+
+                &.btn-nav {
+                    border: 1px solid lightgray;
+                    border-radius: 3px;
+                    padding: 5px 7px;
+                    margin-right: 2px;
+
+                    &:not(.disabled) {
+                        &:hover {
+                            cursor: pointer;
+                            color: $color-white;
+                            border-color: $color-primary;
+                            background-color: $color-primary-light;
+                        }
+                    }
+
+                    &.disabled {
+                        color: lightgray;
+                        border: 1px solid lightgray;
+                        border-radius: 3px;
+                        padding: 5px 7px;
+                        margin-right: 2px;
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
+    }
+}

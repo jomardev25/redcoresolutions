@@ -21,12 +21,19 @@ class UserRequest extends BaseFormRequest
      */
     public function rules()
     {
+        if ($this->method() == 'PATCH') {
+            return [
+                'name' => 'required|string|max:255|unique:users,name,' . $this->segment(4) . ',id',
+                'email' => 'required|string|max:255|unique:users,email,' . $this->segment(4) . ',id',
+                'password' => 'required|string|max:255|confirmed',
+                'role_id' => 'required'
+            ];
+        }
         return [
-            [
-                'name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:6|confirmed'
-            ]
+            'name' => 'required|string|max:255|unique:users,name',
+            'email' => 'required|string|max:255|unique:users,email',
+            'password' => 'required|string|max:255|confirmed',
+            'role_id' => 'required'
         ];
     }
 
@@ -34,8 +41,7 @@ class UserRequest extends BaseFormRequest
     {
         return [
             'name' => 'trim|escape',
-            'email' => 'trim|escape'
+            'description' => 'trim|escape'
         ];
     }
-
 }

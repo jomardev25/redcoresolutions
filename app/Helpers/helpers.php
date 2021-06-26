@@ -1,20 +1,20 @@
 <?php
+use Carbon\Carbon;
 
-if (!function_exists('set_active')) {
-    function set_active($path, $active = 'active')
-    {
-        return call_user_func_array('Request::is', (array) $path) ? $active : '';
-    }
-}
+if (!function_exists("create_upload_folder")) {
+    function create_upload_folder(string $path, bool $addCurYearMonth = true, $isFullPath = false){
+        $year = Carbon::now()->format("Y");
+        $month = Carbon::now()->format("m");
+        $uploadFolder = "uploads/{$path}/{$year}/{$month}";
 
+        if(!$addCurYearMonth)
+            $uploadFolder = "uploads/{$path}";
 
-if (!function_exists('get_breadcrumbs')) {
-    function get_breadcrumbs()
-    {
-        return collect(request()->segments())->mapWithKeys(function ($segment, $key) {
-            return [
-                $segment => implode('/', array_slice(request()->segments(), 0, $key + 1))
-            ];
-        });
+        $path = storage_path("app/public/{$uploadFolder}");
+        File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
+        if($isFullPath)
+            return $path;
+
+        return $uploadFolder;
     }
 }

@@ -9,10 +9,8 @@ abstract class BaseFormRequest extends FormRequest
 
     public function validateResolved()
     {
-        {
-            $this->sanitize();
-            parent::validateResolved();
-        }
+        $this->sanitize();
+        parent::validateResolved();
     }
     /**
      * Get the validation rules that apply to the request.
