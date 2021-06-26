@@ -14,6 +14,8 @@ MODEL_CACHE_STORE='redcoresolutions-cache-model'
 
 JWT_SECRET=HoMfhHJNmF0gjJhgvxlY31oY4xsqIWtgVjisyqWvICeIq4uzAZy9nE3iqm8IBw2Q - JWT KEY or run php artisan jwt:secret to regenerate key
 
+Please run php artisan storage:link to create a symbolic link from "public/storage" to "storage/app/public"
+
 Account List
 
 email: admin@local.com
